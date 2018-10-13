@@ -17,6 +17,7 @@ public class SoDaoImpl implements SoDAO {
     private static String UPDATE = "UPDATE SO SET soID=?, applicationID=?, name=?, description=?, aim=?, head=?, " +
             "address=?, tel_num=?, email=?, facebook=?";
     private static String DELETE = "DELETE FROM SO WHERE id=?";
+    private static final String GET_ALL = "SELECT * FROM SO";
     private JdbcTemplate jdbcTemplate;
 
     @Override
@@ -41,7 +42,7 @@ public class SoDaoImpl implements SoDAO {
 
     @Override
     public List<SO> getAll() {
-        return null;
+        return jdbcTemplate.query(GET_ALL, mapper);
     }
 
     private RowMapper<SO> mapper = new RowMapper<SO>() {
