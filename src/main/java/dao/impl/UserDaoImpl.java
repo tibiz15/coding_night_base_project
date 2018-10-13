@@ -16,6 +16,7 @@ public class UserDaoImpl implements UserDAO {
     private static final String INSERT = "INSERT INTO User (role, name, email, tel_num) VALUES (?,?,?,?)";
     private static final String UPDATE = "UPDATE User SET role=?, name=?, email=?, tel_num=?";
     private static final String DELETE = "DELETE FROM User WHERE id=?";
+    private static final String GET_ALL = "SELECT * FROM User";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -28,27 +29,22 @@ public class UserDaoImpl implements UserDAO {
 
     @Override
     public int insert(User user) {
-        return 0;
+        return jdbcTemplate.update(INSERT, user.getRole(), user.getName(), user.getEmail(), user.getTel_num());
     }
 
     @Override
     public void update(User user) {
-
+        jdbcTemplate.update(UPDATE, user.getRole(), user.getName(), user.getEmail(), user.getTel_num());
     }
 
     @Override
-    public boolean remove(User user) {
-        return false;
-    }
-
-    @Override
-    public boolean ifExists(User user) {
-        return false;
+    public void remove(User user) {
+        jdbcTemplate.update(DELETE, user.getUserId());
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        return jdbcTemplate.query(GET_ALL, mapper);
     }
 
     private RowMapper<User> mapper = new RowMapper<User>() {
@@ -57,9 +53,8 @@ public class UserDaoImpl implements UserDAO {
             user.setUserId(rs.getInt("userID"));
             user.setRole(rs.getString("role"));
             user.setName(rs.getString("name"));
-            user.setEmail("email");
+            user.setEmail(rs.getString("email"));
             user.setTel_num(rs.getString("tel_num"));
-
             return user;
         }
     };
