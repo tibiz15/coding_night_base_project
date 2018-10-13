@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Registration</title>
+    <style>
+
+        button {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            padding:16px;
+            padding-left:24px;
+            padding-right:24px;
+            border-radius: 5px;
+        }
+
+        #no_button {
+            border: 1px solid #f44336;
+        }
+        #no_button:hover {
+            background-color: #f44336; /* Green */
+            color: white;
+        }
+
+        #yes_button{
+            border: 1px solid #4CAF50;
+        }
+
+        #yes_button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
+        * {
+            margin: 10px;
+        }
+
+        p {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: -10px;
+        }
+
+        #explanation_area {
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        #application_container {
+            border: 1px solid black;
+            border-radius: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>
+        Show applications here
+    </h1>
+    <br>
+    <div id="application_container">
+        <p>fsfhuah</p>
+
+
+        <p>Введіть пояснення:</p>
+        <textarea id="explanation_area" cols="30" rows="5" name="explanation" placeholder="Введіть пояснення:">
+        </textarea>
+        <br>
+        <button id="yes_button">Yes</button>
+        <button id="no_button">No</button>
+    </div>
+
+
+
+
+</body>
+</html>

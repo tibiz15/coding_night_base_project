@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Registration</title>
+    <style>
+        input {
+            margin: 10px;
+        }
+
+        textarea {
+            margin: 10px;
+            background-color: beige;
+        }
+
+        input[type="text"] {
+            background-color: beige;
+        }
+
+    </style>
+</head>
+<body>
+
+    <form>
+        <h2>Реєстрація Студентської організації</h2>
+        <label>Назва Студентської організації:</label>
+        <input type="text" tabindex="1" required>
+        <br>
+        <label>Опис Студентської організаці:</label>
+        <br>
+        <textarea rows="5" cols="50" name="description" required tabindex="2" placeholder="Введіть опис:"></textarea>
+        <br>
+        <label>Мета Студентської організаці:</label>
+        <br>
+        <textarea  rows="5" cols="50" name="goal" required tabindex="3" placeholder="Введіть мету:"></textarea>
+        <br>
+        <input type="submit" value="Зареєструвати організуацію">
+    </form>
+</body>
+</html>
