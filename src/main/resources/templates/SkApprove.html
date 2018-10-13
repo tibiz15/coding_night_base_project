@@ -5,6 +5,33 @@
     <title>SK approval</title>
     <style>
 
+        .bg {
+            /* The image used */
+            background-image: url("images/bgForApprove.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        *{
+            font-family: "Franklin Gothic Medium";
+            color: white;
+            margin: 10px;
+        }
+        h1{
+            font-size: 300%;
+        }
+        hr{
+            border: 0;
+            height: 5px;
+            color: white;
+            background-image: linear-gradient(to right, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0.75), rgba(256, 256, 256, 0));
+        }
         button {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.4s;
@@ -34,18 +61,17 @@
             color: white;
         }
 
-        * {
-            margin: 10px;
-        }
+
 
         p {
-            font-size: 17px;
+            font-size: 150%;
             font-weight: bold;
             margin-bottom: -10px;
         }
 
         .explanation_area {
             margin-top: 13px;
+
             border-radius: 5px;
             resize: none;
             border: 1px solid black;
@@ -53,67 +79,74 @@
         }
 
         .application_container {
+            overflow: auto;
             border: 1px solid black;
             border-radius: 5px;
             width: 80%;
             margin: 0px auto;
             margin-bottom: 10px;
-            height: 300px;
+            /*height: 40vh;*/
             padding: 5px;
+            background-color: rgba(0,0,0,0.5);
         }
         .application_container  div {
             display: inline-block;
+
         }
 
         .organization_container {
             border-radius: 5px;
             height: 93%;
-            width: 70%;
+            width: 50%;
             margin-right: -10px;
-            border: 1px solid black;
+        }
+        .organization_container p{
+            margin-right: -15px;
+            word-wrap:break-word;
         }
 
         .submit_container {
 
             float: right;
-            height: 93%;
             border-radius: 5px;
-            border: 1px solid black;
+            border-left: 3px solid white;
+            overflow: auto;
         }
 
         .submit_container button {
             float: right;
+            
         }
 
 
 
     </style>
 </head>
-<body>
-    <h1>
-
-    </h1>
+<body class="bg">
     <br>
-
+    <h1 align="center">Запити на створення організації</h1>
+    <hr>
+    <br>
     <div class="application_container">
 
         <div class="organization_container">
             <p>Назва організації: { organization name }<!-- get name form database --></p>
             <p>Опис організації: { organization description } <!-- get description form database --></p>
-            <p>Мета організації: { organization goal }<!-- get goal form database --></p>
+            <p>Мета організації: { organization goal }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk<!-- get goal form database --></p>
             <p>Статус: { organiation status }</p>
-            <p>Прийнята: { organization approved }</p>
+            <p>Прийнята: { organization approved }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
         </div>
 
         <div class="submit_container">
             <p>Введіть пояснення:</p>
-            <textarea maxlength="330" class="explanation_area" cols="30" rows="11" placeholder="Введіть пояснення тут:"></textarea>
+            <textarea maxlength="330" class="explanation_area" cols="70" rows="11" placeholder="Введіть пояснення тут:"></textarea>
             <br>
-            <button class="no_button">No</button>
-            <button class="yes_button">Yes</button>
+            <button class="no_button">Відхилити</button>
+            <button class="yes_button">Прийняти</button>
         </div>
 
     </div>
+
 
 
 
