@@ -11,6 +11,9 @@ public class SoApplication {
     private String aim;
     private boolean approved;
     private int status;
+    private String rejectedText;
+    private int dekanID;
+    private int skID;
 
     public int getApplicationID() {
         return applicationID;
@@ -66,5 +69,29 @@ public class SoApplication {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getRejectedText() {
+        return rejectedText;
+    }
+
+    public void setRejectedText(String rejectedText) {
+        this.rejectedText = rejectedText;
+    }
+
+    public int getDekanID() {
+        return dekanID;
+    }
+
+    public void setDekanID(int dekanID) {
+        this.dekanID = dekanID;
+    }
+
+    public int getSkID() {
+        return skID;
+    }
+
+    public void setSkID(int skID) {
+        this.skID = skID;
     }
 }

@@ -11,9 +11,7 @@ public interface UserDAO {
 
     void update(User user);
 
-    boolean remove(User user);
-
-    boolean ifExists(User user);
+    void remove(User user);
 
     List<User> getAll();
 }
