@@ -11,7 +11,7 @@ public interface SoDAO {
 
     void update(SO so);
 
-    boolean remove(SO so);
+    void remove(SO so);
 
     List<SO> getAll();
 

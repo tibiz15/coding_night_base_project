@@ -2,6 +2,7 @@ package dao.impl;
 
 import dao.SoDAO;
 import entyties.SO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -18,6 +19,8 @@ public class SoDaoImpl implements SoDAO {
             "address=?, tel_num=?, email=?, facebook=?";
     private static String DELETE = "DELETE FROM SO WHERE id=?";
     private static final String GET_ALL = "SELECT * FROM SO";
+
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
@@ -27,18 +30,19 @@ public class SoDaoImpl implements SoDAO {
 
     @Override
     public int insert(SO so) {
-        return 0;
+        return jdbcTemplate.update(INSERT, UPDATE, so.getSoID(), so.getApplicationID(), so.getName(), so.getDescription(),
+                so.getAim(), so.getHead(), so.getAddress(), so.getTel_num(), so.getEmail(), so.getFacebook());
     }
 
     @Override
     public void update(SO so) {
-
+        jdbcTemplate.update(UPDATE, so.getSoID(), so.getApplicationID(), so.getName(), so.getDescription(),
+                so.getAim(), so.getHead(), so.getAddress(), so.getTel_num(), so.getEmail(), so.getFacebook());
     }
 
     @Override
-    public boolean remove(SO so) {
-        return false;
-    }
+    public void remove(SO so) {
+        jdbcTemplate.update(DELETE, so.getSoID());    }
 
     @Override
     public List<SO> getAll() {
