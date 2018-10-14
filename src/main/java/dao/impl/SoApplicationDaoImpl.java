@@ -2,7 +2,6 @@ package dao.impl;
 
 import dao.SoApplicationDAO;
 import entyties.SoApplication;
-import entyties.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -15,38 +14,55 @@ public class SoApplicationDaoImpl implements SoApplicationDAO {
 
     private static String GET = "SELECT * FROM SO_application WHERE id=?";
     private static final String INSERT = "INSERT INTO SO_application (authorID, name, description, aim, approved," +
-            " status, rejectet_text, dekanID, skID) VALUES (?,?,?,?)";
+            " status, rejected_text, dekanID, skID) VALUES (?,?,?,?)";
     private static final String UPDATE = "UPDATE SO_application SET authorID=?, name=?, descriptoin=?, aim=?," +
             "approved=?, status=?, rejected_tesxt=?, dekanID=?, dekanID=?, skID=?";
     private static final String DELETE = "DELETE FROM SO_application WHERE id=?";
     private static final String GET_ALL = "SELECT * FROM SO_application";
+    private static final String GET_DECAN_APPLICATIONS = "SELECT * FROM SO_application WHERE status = 2";
+    private static final String GET_SK_APPLICATIONS = "SELECT * FROM SO_application WHERE status = 0";
+
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public SoApplication getSoApplication(int id) {
-        return null;
+        return jdbcTemplate.queryForObject(GET, mapper, id);
     }
 
     @Override
     public int insert(SoApplication soApplication) {
-        return 0;
+        return jdbcTemplate.update(INSERT, soApplication.getName(), soApplication.getDescription(), soApplication.getAim(),
+                soApplication.isApproved(), soApplication.getStatus(), soApplication.getRejectedText(), soApplication.getDekanID(),
+                soApplication.getSkID());
     }
 
     @Override
     public void update(SoApplication soApplication) {
-
+        jdbcTemplate.update(UPDATE, soApplication.getName(), soApplication.getDescription(), soApplication.getAim(),
+                soApplication.isApproved(), soApplication.getStatus(), soApplication.getRejectedText(), soApplication.getDekanID(),
+                soApplication.getSkID());
     }
 
     @Override
-    public boolean remove(SoApplication soApplication) {
-        return false;
+    public void remove(SoApplication soApplication) {
+        jdbcTemplate.update(DELETE, soApplication.getApplicationID());
+    }
+
+    @Override
+    public List<SoApplication> getSkApplications() {
+        return jdbcTemplate.query(GET_SK_APPLICATIONS, mapper);
+    }
+
+    @Override
+    public List<SoApplication> getDecanApplications() {
+        return jdbcTemplate.query(GET_DECAN_APPLICATIONS, mapper);
     }
 
     @Override
     public List<SoApplication> getAll() {
-        return null;
+        return jdbcTemplate.query(GET_ALL, mapper);
     }
 
     private RowMapper<SoApplication> mapper = new RowMapper<SoApplication>() {

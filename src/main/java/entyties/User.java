@@ -1,9 +1,16 @@
 package entyties;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Component
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String role;
     private String name;
