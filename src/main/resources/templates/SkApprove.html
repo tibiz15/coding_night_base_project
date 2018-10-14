@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
     <title>SK approval</title>
     <style>
-
+        @font-face { font-family: Intro; src: url("fonts"); }
         .bg {
             /* The image used */
             background-image: url("images/bgForApprove.jpg");
@@ -18,41 +22,47 @@
             background-size: cover;
             background-attachment: fixed;
         }
-        *{
-            font-family: "Franklin Gothic Medium";
+
+        * {
+            font-family: "Intro";
             color: white;
-            margin: 10px;
         }
-        h1{
+
+        h1 {
             font-size: 300%;
+            color: white;
         }
-        hr{
+
+        hr {
             border: 0;
             height: 5px;
             color: white;
             background-image: linear-gradient(to right, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0.75), rgba(256, 256, 256, 0));
         }
+
         button {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.4s;
             background-color: white;
             color: black;
             font-size: 16px;
-            padding:16px;
-            padding-left:24px;
-            padding-right:24px;
+            padding: 16px;
+            padding-left: 24px;
+            padding-right: 24px;
             border-radius: 5px;
         }
 
         .no_button {
             border: 1px solid #f44336;
+
         }
+
         .no_button:hover {
             background-color: #f44336; /* Green */
             color: white;
         }
 
-        .yes_button{
+        .yes_button {
             border: 1px solid #4CAF50;
         }
 
@@ -61,8 +71,6 @@
             color: white;
         }
 
-
-
         p {
             font-size: 150%;
             font-weight: bold;
@@ -70,87 +78,87 @@
         }
 
         .explanation_area {
-            margin-top: 13px;
 
             border-radius: 5px;
-            resize: none;
+            color: black;
+            font-size: 150%;
             border: 1px solid black;
-            margin-bottom: -5px;
+            resize:none;
+            width: 90%;
+            height: 70%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+
         }
 
         .application_container {
             overflow: auto;
             border: 1px solid black;
-            border-radius: 5px;
+
             width: 80%;
             margin: 0px auto;
-            margin-bottom: 10px;
+
+            font-size: 80%;
             /*height: 40vh;*/
-            padding: 5px;
-            background-color: rgba(0,0,0,0.5);
+
+            background-color: rgba(0, 0, 0, 0.5);
         }
-        .application_container  div {
+
+        .application_container div {
             display: inline-block;
 
         }
-
         .organization_container {
-            border-radius: 5px;
-            height: 93%;
-            width: 50%;
-            margin-right: -10px;
+            margin-top: 3%;
+            margin-bottom: 3%;
         }
-        .organization_container p{
-            margin-right: -15px;
-            word-wrap:break-word;
+        .organization_container p {
+            word-wrap: break-word;
         }
 
         .submit_container {
-
-            float: right;
-            border-radius: 5px;
             border-left: 3px solid white;
-            overflow: auto;
+            margin-top: 3%;
+            margin-bottom: 4%;
+
         }
 
         .submit_container button {
             float: right;
-            
-        }
 
+        }
 
 
     </style>
 </head>
 <body class="bg">
-    <br>
-    <h1 align="center">Запити на створення організації</h1>
-    <hr>
-    <br>
-    <div class="application_container">
+<br>
+<h1 align="center">Запити на створення організації</h1>
+<hr>
+<br>
+<div class="application_container row">
 
-        <div class="organization_container">
-            <p>Назва організації: { organization name }<!-- get name form database --></p>
-            <p>Опис організації: { organization description } <!-- get description form database --></p>
-            <p>Мета організації: { organization goal }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk<!-- get goal form database --></p>
-            <p>Статус: { organiation status }</p>
-            <p>Прийнята: { organization approved }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
-        </div>
-
-        <div class="submit_container">
-            <p>Введіть пояснення:</p>
-            <textarea maxlength="330" class="explanation_area" cols="70" rows="11" placeholder="Введіть пояснення тут:"></textarea>
-            <br>
-            <button class="no_button">Відхилити</button>
-            <button class="yes_button">Прийняти</button>
-        </div>
-
+    <div class="organization_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>Назва організації: { organization name }<!-- get name form database --></p>
+        <p>Опис організації: { organization description } <!-- get description form database --></p>
+        <p>Мета організації: { organization goal }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+            <!-- get goal form database --></p>
+        <p>Статус: { organiation status }</p>
+        <p>Прийнята: { organization approved
+            }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
     </div>
 
+    <div class="submit_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>Введіть пояснення:</p>
+        <br>
+        <textarea maxlength="330" class="explanation_area"></textarea>
+        <br>
+        <button class="no_button">Відхилити</button>
 
+        <button class="yes_button">Прийняти</button>
+    </div>
 
-
-
+</div>
 
 
 </body>
