@@ -17,6 +17,8 @@ public class UserDaoImpl implements UserDAO {
     private static final String UPDATE = "UPDATE User SET role=?, name=?, email=?, tel_num=?";
     private static final String DELETE = "DELETE FROM User WHERE id=?";
     private static final String GET_ALL = "SELECT * FROM User";
+    private static final String GET_BY_NAME = "SELECT * FROM User WHERE name=?";
+
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -25,6 +27,11 @@ public class UserDaoImpl implements UserDAO {
     @Override
     public User get(int id) {
         return jdbcTemplate.queryForObject(GET, mapper, id);
+    }
+
+    @Override
+    public User getByName(String name) {
+        return jdbcTemplate.queryForObject(GET_BY_NAME, User.class, name);
     }
 
     @Override

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>SK approval</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+
+        $( document ).ready(function(){
+
+            //alert(window.location);
+
+
+
+            var theList = [[${organizations}]]
+
+            for (i = 0; i < theList.length; i++) {
+                var organization = {
+                    id : theList[i].id,
+                    name : theList[i].name,
+                    description : theList[i].description,
+                    goal : theList[i].goal,
+                    status : theList[i].status,
+                    approved : theList[i].approved
+                }
+
+
+                $(".animatedParent").append("<div class=\"application_container row\">\n" +
+                    "        <div class=\"organization_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\" >\n" +
+                    "            <p>Назва організації: organization.name<!-- get name form database --></p>\n" +
+                    "            <p>Опис організації: organization.description <!-- get description form database --></p>\n" +
+                    "            <p>Мета організації: organization.goal" +
+                    "            <p>Статус: organization.status</p>\n" +
+                    "            <p>Прийнята: organization.approved</p>\n" +
+                    "        </div>\n" +
+                    "\n" +
+                    "        <div class=\"submit_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\n" +
+                    "            <p>Введіть пояснення:</p>\n" +
+                    "            <br>\n" +
+                    "            <textarea maxlength=\"330\" class=\"explanation_area\" placeholder=\"sanya huy sosi\"></textarea>\n" +
+                    "            <br>\n" +
+                    "            <button class=\"no_button\">Відхилити</button>\n" +
+                    "\n" +
+                    "            <button class=\"yes_button\">Прийняти</button>\n" +
+                    "        </div>\n" +
+                    "\n" +
+                    "    </div>");
+
+            }
+
+
+            $( "button.no_button" ).on( "click", function() {
+
+
+
+                var Test = {
+                    name : "no",
+                    i : 5
+                }
+
+                $.ajax({
+                    type : "POST",
+                    contentType : "application/json",
+                    url : window.location,
+                    data : JSON.stringify(Test),
+                    dataType : 'json',
+                    success : function(result) {
+                        //slocation.reload();
+                        if(result.status == "Done"){
+                            //alert("Good");
+                            /* $("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
+                                 "Post Successfully! <br>" +
+                                 "---> Customer's Info: FirstName = " +
+                                 result.data.firstname + " ,LastName = " + result.data.lastname + "</p>");*/
+                        }else{
+                            //alert("Not good");
+                            //$("#postResultDiv").html("<strong>Error</strong>");
+                        }
+                        //console.log(result);
+                    },
+                    error : function(e) {
+                        //location.reload();
+                    }
+                });
+            });
+
+
+            $( "button.yes_button" ).on( "click", function() {
+                var Test = {
+                    name : "yes",
+                    i : 5
+                }
+
+                $.ajax({
+                    type : "POST",
+                    contentType : "application/json",
+                    url : window.location,
+                    data : JSON.stringify(Test),
+                    dataType : 'json',
+                    success : function(result) {
+                        //slocation.reload();
+                        if(result.status == "Done"){
+                            //alert("Good");
+                            /* $("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
+                                 "Post Successfully! <br>" +
+                                 "---> Customer's Info: FirstName = " +
+                                 result.data.firstname + " ,LastName = " + result.data.lastname + "</p>");*/
+                        }else{
+                            //alert("Not good");
+                            //$("#postResultDiv").html("<strong>Error</strong>");
+                        }
+                        //console.log(result);
+                    },
+                    error : function(e) {
+                        //location.reload();
+                    }
+                });
+            });
+
+
+
+        });
+
+
+
+        /*]]>*/
+    </script>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+
+
+
+
+
+
+
+        .bg {
+            /* The image used
+            background-image: url("images/bgForApprove.jpg");*/
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        * {
+            font-family: "Roboto";
+            color: white;
+        }
+
+        h1 {
+            font-size: 300%;
+            font-weight: bold;
+            color: white;
+        }
+
+        hr {
+            border: 0;
+            height: 5px;
+            color: white;
+            background-image: linear-gradient(to right, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0.75), rgba(256, 256, 256, 0));
+        }
+
+        button {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            padding: 16px;
+            padding-left: 24px;
+            padding-right: 24px;
+            border-radius: 5px;
+        }
+
+        .no_button {
+            border: 1px solid #f44336;
+
+        }
+
+        .no_button:hover {
+            background-color: #f44336; /* Green */
+            color: white;
+        }
+
+        .yes_button {
+            border: 1px solid #4CAF50;
+        }
+
+        .yes_button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
+        p {
+            font-size: 150%;
+            font-weight: bold;
+            margin-bottom: -10px;
+        }
+
+        .explanation_area {
+
+            border-radius: 5px;
+            color: black;
+            font-size: 150%;
+            border: 1px solid black;
+            resize:none;
+            width: 100%;
+            height: 70%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+
+        }
+
+        .application_container {
+            overflow: auto;
+            border: 1px solid black;
+
+            width: 80%;
+            margin: 0px auto;
+
+            font-size: 80%;
+            /*height: 40vh;*/
+            border-radius: 10px;
+            margin-bottom: 1%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .application_container div {
+            display: inline-block;
+
+        }
+        .organization_container {
+            margin-top: 3%;
+            margin-bottom: 3%;
+        }
+        .organization_container p {
+            word-wrap: break-word;
+        }
+
+        .submit_container {
+            border-left: 3px solid white;
+            margin-top: 3%;
+            margin-bottom: 4%;
+
+        }
+
+        .submit_container button {
+            float: right;
+            margin-left: 5%;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body class="bg">
+
+<br>
+<h1 align="center">Запити на створення студентських організацій</h1>
+<hr>
+<br>
+<div class="animatedParent">
+    <div class="slower animated growIn box"></div>
+</div>
+<div class="animatedParent">
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/css3-animate-it.js"></script>
+</body>
+</html>

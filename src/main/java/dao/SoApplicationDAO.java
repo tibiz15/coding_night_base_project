@@ -11,8 +11,11 @@ public interface SoApplicationDAO {
 
     void update(SoApplication soApplication);
 
-    boolean remove(SoApplication soApplication);
+    void remove(SoApplication soApplication);
 
+    List<SoApplication> getSkApplications();
+
+    List<SoApplication> getDecanApplications();
 
     List<SoApplication> getAll();
 }

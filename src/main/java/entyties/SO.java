@@ -1,9 +1,16 @@
 package entyties;
 
+import jdk.internal.jline.internal.Nullable;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Component
 public class SO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int soID;
     private int applicationID;
     private String name;
@@ -12,8 +19,24 @@ public class SO {
     private String head;
     private String address;
     private String tel_num;
+    @Nullable
     private String email;
+    @Nullable
     private String facebook;
+
+    public SO(int applicationID, String name, String description, String aim, String head,
+              String tel_num, String email) {
+        this.applicationID = applicationID;
+        this.name = name;
+        this.description = description;
+        this.aim = aim;
+        this.head = head;
+        this.tel_num = tel_num;
+        this.email = email;
+    }
+
+    public SO() {
+    }
 
     public int getSoID() {
         return soID;
