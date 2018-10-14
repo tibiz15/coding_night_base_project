@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="plugins/aos-master/dist/aos.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <title>SK approval</title>
-    <style>
-        @font-face { font-family: Intro; src: url("fonts"); }
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
         .bg {
             /* The image used */
             background-image: url("images/bgForApprove.jpg");
@@ -24,12 +26,13 @@
         }
 
         * {
-            font-family: "Intro";
+            font-family: "Roboto";
             color: white;
         }
 
         h1 {
             font-size: 300%;
+            font-weight: bold;
             color: white;
         }
 
@@ -84,7 +87,7 @@
             font-size: 150%;
             border: 1px solid black;
             resize:none;
-            width: 90%;
+            width: 100%;
             height: 70%;
             margin-top: 2%;
             margin-bottom: 2%;
@@ -100,7 +103,8 @@
 
             font-size: 80%;
             /*height: 40vh;*/
-
+            border-radius: 10px;
+            margin-bottom: 1%;
             background-color: rgba(0, 0, 0, 0.5);
         }
 
@@ -119,33 +123,36 @@
         .submit_container {
             border-left: 3px solid white;
             margin-top: 3%;
-            margin-bottom: 4%;
+            margin-bottom: 5%;
 
         }
 
         .submit_container button {
             float: right;
-
+            margin-left: 5%;
         }
-
 
     </style>
 </head>
+<script src="plugins/aos-master/dist/aos.js"></script>
 <body class="bg">
+
 <br>
-<h1 align="center">Запити на створення організації</h1>
+<h1 align="center">Запити на створення студентських організацій</h1>
 <hr>
 <br>
+
+<div  class="aos-item" >
 <div class="application_container row">
 
-    <div class="organization_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="organization_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
         <p>Назва організації: { organization name }<!-- get name form database --></p>
         <p>Опис організації: { organization description } <!-- get description form database --></p>
         <p>Мета організації: { organization goal }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
             <!-- get goal form database --></p>
         <p>Статус: { organiation status }</p>
         <p>Прийнята: { organization approved
-            }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
+            }kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
     </div>
 
     <div class="submit_container col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -159,6 +166,9 @@
     </div>
 
 </div>
+
+</div>
+
 
 
 </body>
